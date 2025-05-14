@@ -31,7 +31,7 @@ public class PunchReactionBlendShape : MonoBehaviour
             return;
 
         _currentValue += damagePerPunch;
-        _currentValue = Mathf.Clamp(0, maxValue, _currentValue);
+        _currentValue = Mathf.Clamp(_currentValue, 0, maxValue);
         
         rend.SetBlendShapeWeight(blendShapeIndex, _currentValue);
     }

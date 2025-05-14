@@ -7,6 +7,7 @@ using UnityEngine;
 public class CollisionDetector : MonoBehaviour
 {
     [SerializeField] DKEvents.DKEventVector2 onPunchPosition;
+    [SerializeField] DKEvents.DKEventVector3 onPunchPosition3D;
     [SerializeField] DKEvents.DKEventInt punchCount;
     
     [Space]
@@ -31,5 +32,6 @@ public class CollisionDetector : MonoBehaviour
 
         punchCount.Value += 1;
         onPunchPosition.Invoke(normilizedPos);
+        onPunchPosition3D.Invoke(other.contacts[0].point);
     }
 }

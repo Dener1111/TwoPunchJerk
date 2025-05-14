@@ -10,7 +10,7 @@ public class PunchReactionParticles : MonoBehaviour
     [SerializeField] ParticleSystem particle;
     [SerializeField] HeadPart headPartTarget;
     [SerializeField] int spawnAfterPunchCount = 10;
-    [SerializeField] int maxSpawns = 15;
+    [SerializeField] int maxSpawns = 24;
 
     int _punchCount;
     int _spawnCount;

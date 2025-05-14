@@ -6,28 +6,38 @@ using UnityEngine;
 public class PunchReactionBlood : MonoBehaviour
 {
     [SerializeField] DKEvents.DKEventInt punchCount;
-    [SerializeField] DKEvents.DKEventVector2 onPunchPosition;
+    [SerializeField] DKEvents.DKEventVector3 onPunchLeft;
+    [SerializeField] DKEvents.DKEventVector3 onPunchRight;
 
     [Space]
     [SerializeField] ParticleSystem particle;
     [SerializeField] int spawnAfterPunchCount = 10;
+
+    int _punchDir;
     
     void Start()
     {
-        onPunchPosition.AddListener(OnPunch);
+        punchCount.AddListener(OnPunch);
+        onPunchLeft.AddListener(OnPunchLeft);
+        onPunchRight.AddListener(OnPunchRight);
     }
 
     void OnDestroy()
     {
-        onPunchPosition.RemoveListener(OnPunch);
+        punchCount.RemoveListener(OnPunch);
+        onPunchLeft.RemoveListener(OnPunchLeft);
+        onPunchRight.RemoveListener(OnPunchRight);
     }
 
-    void OnPunch(Vector2 pos)
+    void OnPunchLeft(Vector3 _) => _punchDir = -1;
+    void OnPunchRight(Vector3 _) => _punchDir = 1;
+
+    void OnPunch(int count)
     {
-        if(punchCount.Value < spawnAfterPunchCount)
+        if(count < spawnAfterPunchCount)
             return;
         
-        particle.transform.rotation = Quaternion.LookRotation(Vector3.left * Mathf.Sign(pos.x));
+        particle.transform.rotation = Quaternion.LookRotation(Vector3.left * _punchDir);
         particle.Play();
     }
 }

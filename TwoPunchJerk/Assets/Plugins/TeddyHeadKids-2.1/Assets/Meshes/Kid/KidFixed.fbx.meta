@@ -9,6 +9,16 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: BlueBearKid2
     second: {fileID: 2100000, guid: b334e7e1a899a1d4eb4f259584262b81, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueBearKid2.001
+    second: {fileID: 2100000, guid: 7f3b73d6926dfd54e824f75c91188bef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueBearKid2.003
+    second: {fileID: 2100000, guid: b334e7e1a899a1d4eb4f259584262b81, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
