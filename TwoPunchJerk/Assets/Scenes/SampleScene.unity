@@ -2079,6 +2079,28 @@ MonoBehaviour:
     pos: {x: -0.55, y: -0.65}
   - name: CheekRight
     pos: {x: 0.55, y: -0.65}
+--- !u!114 &936315609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936315603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af3b77614cb196e48bb0702125317dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onPunchHeadPart: {fileID: 11400000, guid: 480f5b9963e48674badf0ff60e0bf908, type: 2}
+  rend: {fileID: 2085085362}
+  maskNames:
+  - Forehead
+  - Nose
+  - Mouth
+  - EyeLeft
+  - EyeRight
+  - CheekLeft
+  - CheekRight
 --- !u!1 &1798776390
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2219,12 @@ MonoBehaviour:
   punchMask:
     serializedVersion: 2
     m_Bits: 1
+--- !u!137 &2085085362 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7780651728715173671, guid: 0197c4de4d55de243a804306dea2a6d0,
+    type: 3}
+  m_PrefabInstance: {fileID: 6568512403354336097}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6568512403354336097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2276,6 +2304,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 936315608}
+    - targetCorrespondingSourceObject: {fileID: 2720448422830732345, guid: 0197c4de4d55de243a804306dea2a6d0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 936315609}
   m_SourcePrefab: {fileID: 100100000, guid: 0197c4de4d55de243a804306dea2a6d0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
