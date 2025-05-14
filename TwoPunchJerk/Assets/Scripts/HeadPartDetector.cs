@@ -6,13 +6,13 @@ using UnityEngine;
 public class HeadPartDetector : MonoBehaviour
 {
     [SerializeField] DKEvents.DKEventVector2 onPunchPosition;
-    [SerializeField] DKEvents.DKEventString onPunchHeadPart;
+    [SerializeField] DKEvents.DKEventHeadPart onPunchHeadPart;
 
     [Space]
     [SerializeField] SphereCollider coll;
 
     [SerializeField] float scaleFactor; //model/animations is fucked
-    [SerializeField] List<HeadPart> headParts;
+    [SerializeField] List<HeadPartPos> headParts;
 
 
     void Start()
@@ -28,7 +28,7 @@ public class HeadPartDetector : MonoBehaviour
     void OnPunch(Vector2 pos)
     {
         float minDist = 1f;
-        HeadPart target = null;
+        HeadPartPos target = null;
         foreach (var item in headParts)
         {
             float dist = Vector2.Distance(pos, item.pos);
@@ -42,7 +42,7 @@ public class HeadPartDetector : MonoBehaviour
         if (target == null)
             return;
 
-        onPunchHeadPart.Invoke(target.name);
+        onPunchHeadPart.Value = target.part;
         // Debug.Log($"PUNCHED: {target.name}");
     }
 
@@ -66,9 +66,9 @@ public class HeadPartDetector : MonoBehaviour
     }
 
     [System.Serializable]
-    class HeadPart
+    class HeadPartPos
     {
-        public string name;
+        public HeadPart part;
         public Vector2 pos;
     }
 }

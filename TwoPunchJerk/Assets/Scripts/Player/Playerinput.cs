@@ -35,6 +35,7 @@ public class Playerinput : MonoBehaviour
         {
             _handIndex = 0;
             CheckPunch();
+            return;
         }
 
         if (Input.GetMouseButtonDown(1))

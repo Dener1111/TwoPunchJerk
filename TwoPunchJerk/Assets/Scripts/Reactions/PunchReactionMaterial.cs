@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class PunchReactionMaterial : MonoBehaviour
 {
-    [SerializeField] DKEvents.DKEventString onPunchHeadPart;
+    [SerializeField] DKEvents.DKEventHeadPart onPunchHeadPart;
 
     [Space]
     [SerializeField] Renderer rend;
     [SerializeField] float damagePerPunch = .25f;
-    [SerializeField] List<string> maskNames;
+    [SerializeField] List<HeadPart> masks;
     
     void Start()
     {
@@ -22,10 +22,12 @@ public class PunchReactionMaterial : MonoBehaviour
         onPunchHeadPart.RemoveListener(OnPunch);
     }
 
-    void OnPunch(string partName)
+    void OnPunch(HeadPart part)
     {
-        if(!maskNames.Contains(partName))
+        if(!masks.Contains(part))
             return;
+
+        string partName = part.ToString();
 
         float damage = rend.material.GetFloat(partName);
         damage += damagePerPunch;
