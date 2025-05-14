@@ -11,12 +11,15 @@ public class Playerinput : MonoBehaviour
     
     [Space]
     [SerializeField] LayerMask punchMask;
+
+    [SerializeField] float timeBetweenInput = .15f;
     
     Camera _cam;
 
     int _handIndex;
     RaycastHit[] _hits = new RaycastHit[2];
 
+    float _nextImput;
     
     void Start()
     {
@@ -25,6 +28,9 @@ public class Playerinput : MonoBehaviour
 
     void Update()
     {
+        if(Time.time < _nextImput)
+            return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             _handIndex = 0;
@@ -44,6 +50,8 @@ public class Playerinput : MonoBehaviour
         
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
         int hitCount = Physics.RaycastNonAlloc(ray, _hits, dist, punchMask, QueryTriggerInteraction.Ignore);
+
+        _nextImput = Time.time + timeBetweenInput;
 
         if (hitCount <= 0)
         {
